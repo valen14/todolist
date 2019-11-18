@@ -16,7 +16,7 @@ export class EditItemComponent implements OnInit {
 
 
 
-idx : String
+idx : string
 editItemForm: FormGroup
 item:Item
   
@@ -24,7 +24,7 @@ item:Item
   constructor(private route: ActivatedRoute ,private router: Router,private itemService:DataService) { 
   
       this.idx=this.route.snapshot.paramMap.get("idx")
-    this.item=this.itemService.getItemList()[this.idx];
+    this.item=this.itemService.getItemList()[parseInt(this.idx)];
 
 
     this.editItemForm = new FormGroup({
@@ -38,7 +38,7 @@ item:Item
   
   onSubmit(){
     var item=new Item(this.editItemForm.get("itemName").value)
-    this.itemService.editItem(item,this.idx)
+    this.itemService.editItem(item,parseInt(this.idx))
     this.router.navigateByUrl("/")
   }
 

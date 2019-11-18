@@ -22,7 +22,7 @@ this.items=[new Item("item de lista")]
  addItem(item:Item){
   this.items.push(item)
  }
- editItem(item:Item, id:Integer){
+ editItem(item:Item, id:number){
  	this.items[id]=item;
  }
  deleteItem(item:Item){
